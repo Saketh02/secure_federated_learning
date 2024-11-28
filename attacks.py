@@ -16,7 +16,8 @@ def get_noisy_parameters(parameters):
     return noisy_parameters
 
 noisy_parameters = get_noisy_parameters(parameters)
-print(detect_random_noise_injection(noisy_parameters, client.model))
+attack_detected = detect_random_noise_injection(noisy_parameters, client.model)
+print(f"Is attack detected? {attack_detected}")
 
 
 def get_poisoned_parameters(poison_factor=10, noise_level=0.1):
@@ -34,7 +35,8 @@ def get_poisoned_parameters(poison_factor=10, noise_level=0.1):
     return poisoned_parameters
 
 poisoned_parameters = get_poisoned_parameters()
-print(detect_model_poisoning(poisoned_parameters, client.model))
+attack_detected = detect_model_poisoning(poisoned_parameters, client.model)
+print(f"Is attack detected? {attack_detected}")
 
 
 def targeted_poisoning_attack(model, target_class, poison_factor=10, noise_level=0.1):
