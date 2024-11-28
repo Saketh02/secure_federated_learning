@@ -3,6 +3,7 @@ import numpy as np
 from torch.utils.data import DataLoader, TensorDataset
 from utilities.attackutils import detect_random_noise_injection, detect_model_poisoning, detect_targeted_model_poisoning, is_malicious
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 clients_data = torch.load("./secure_clients_data.pth")
 clients = clients_data["clients"]
 client = clients[0]
@@ -64,6 +65,13 @@ def targeted_poisoning_attack(model, target_class, poison_factor=10, noise_level
     return poisoned_parameters
 
 poisoned_parameters = targeted_poisoning_attack(client.model, target_class=5)
+
+for key, value in parameters.items():
+    parameters[key] = value.to(device)
+
+for key, value in poisoned_parameters.items():
+    poisoned_parameters[key] = value.to(device)
+
 
 def detect_targeted_poisoning(poisoned_parameters, original_parameters, threshold=100):
     diff = 0
