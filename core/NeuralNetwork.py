@@ -20,8 +20,8 @@ class NeuralNetwork(nn.Module):
         x = self.pool(F.relu(self.conv2(x)))
         x = x.view(-1, 32 * 5 * 5)
         x = F.relu(self.fc1(x))
-        x = self.dropout1(x)  # Apply dropout after the first fully connected layer
+        x = self.dropout1(x)
         x = F.relu(self.fc2(x))
-        x = self.dropout2(x)  # Apply dropout after the second fully connected layer
+        x = self.dropout2(x)
         x = self.fc3(x)
         return x
