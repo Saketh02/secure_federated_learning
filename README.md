@@ -52,5 +52,7 @@ Apart from this, you can also use the google colab notebooks for executing the s
 2) Level 2: https://colab.research.google.com/drive/1236C2EQQeXOHGca29Smik3PQUiFR49oY?usp=sharing
 3) Level 3: https://colab.research.google.com/drive/198AjGZeMZUDVM5-U5XJO8tScZ0yLJspz?usp=sharing
 
-If there are dependencies issue, please uncomment the first cell and upload the requirements.txt to runtime and execute it. That will solve the problem
-If you wish to use the existing models, upload mnist_cnn.pth, federated_learning.pth, secure_federated_learning.pth so that model is not going to be trained again. For particular image prediction, create a folder called images and upload all the images and change the image name, that will do it.
+==> If there are dependencies issue, please uncomment the first cell and upload the requirements.txt to runtime and execute it. That will solve the problem
+==> If you wish to use the existing models, upload mnist_cnn.pth, federated_learning.pth, secure_federated_learning.pth so that model is not going to be trained again. 
+==> For particular image prediction, create a folder called images and upload all the images and change the image name, that will do it.
+
